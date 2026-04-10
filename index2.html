@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fabitrip - Explore • Book • Travel</title>
+
+  <link rel="icon" type="image/x-icon" href="assets/favicon.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body class="bg-[#f5f7fa]">
+
+<!-- Navbar -->
+<!-- Premium Booking Style Header -->
+<header class="bg-white shadow">
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    
+    <!-- Logo -->
+    <div class="flex items-center gap-3">
+      <img src="assets/logo.png" class="h-8">
+    </div>
+
+    <!-- Right Section -->
+    <div class="flex items-center gap-4 text-sm">
+      
+      <!-- Currency -->
+      <!-- <span class="hidden md:block">INR</span> -->
+
+      <!-- Flag -->
+      <img src="https://flagcdn.com/w40/in.png" class="h-5 rounded-full">
+
+      <!-- Help Icon -->
+      <button class="border rounded-full w-6 h-6 flex items-center justify-center">?</button>
+       <!-- List Your Property -->
+      <button class="text-[#ef4444] px-4 py-1 rounded font-semibold border-2 border-[#ef4444]">
+        List Your Property
+      </button>
+
+      <!-- Register -->
+      <button class="text-white bg-[#ef4444] px-4 py-1 rounded font-semibold ">
+        Register
+      </button>
+
+      <!-- Sign In -->
+      <button class="text-white bg-[#ef4444] px-4 py-1 rounded font-semibold">
+        Sign in
+      </button>
+
+    </div>
+  </div>
+</header>
+
+<!-- Tabs -->
+<div class="max-w-6xl mx-auto px-4 mt-4">
+  <div class="flex gap-6 text-lg font-semibold items-center">
+    
+    <button onclick="switchTab('stays')" class="tabBtn flex items-center gap-2 border-b-2 border-red-500 pb-2 text-lg" id="tab-stays">
+      <i class="fa-solid fa-bed text-2xl"></i> <span>Stays</span>
+    </button>
+
+    <button onclick="switchTab('flights')" class="tabBtn flex items-center gap-2 text-gray-500 pb-2 text-lg" id="tab-flights">
+      <i class="fa-solid fa-plane text-2xl"></i> <span>Flights</span>
+    </button>
+
+    <button onclick="switchTab('cars')" class="tabBtn flex items-center gap-2 text-gray-500 pb-2 text-lg" id="tab-cars">
+      <i class="fa-solid fa-car text-2xl"></i> <span>Cars</span>
+    </button>
+
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="bg-[#2d3e5e] text-white py-12">
+  <div class="max-w-6xl mx-auto px-4">
+    <h1 id="heroTitle" class="text-3xl font-bold mb-6">Find your next stay</h1>
+    <div id="formContainer"></div>
+  </div>
+</section>
+
+<!-- Cards Section -->
+<section class="max-w-7xl mx-auto p-6">
+  <h2 id="cardTitle" class="text-2xl font-bold mb-6">Trending Stays</h2>
+  <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+</section>
+
+
+<!-- Why Fabitrip -->
+<section class="max-w-7xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-6">Why Fabitrip?</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <div class="text-3xl mb-3">💰</div>
+      <h3 class="font-bold mb-1">Best Price Guarantee</h3>
+      <p class="text-sm text-gray-500">Get the best deals on hotels, flights & packages.</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <div class="text-3xl mb-3">⚡</div>
+      <h3 class="font-bold mb-1">Instant Booking</h3>
+      <p class="text-sm text-gray-500">Quick and hassle-free booking experience.</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <div class="text-3xl mb-3">🌍</div>
+      <h3 class="font-bold mb-1">Worldwide Options</h3>
+      <p class="text-sm text-gray-500">Explore destinations across the globe.</p>
+    </div>
+
+    <div class="bg-white p-5 rounded-xl shadow hover:shadow-lg transition">
+      <div class="text-3xl mb-3">📞</div>
+      <h3 class="font-bold mb-1">24/7 Support</h3>
+      <p class="text-sm text-gray-500">We are here to help you anytime, anywhere.</p>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- Offers -->
+<section class="max-w-7xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-6">Offers</h2>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+    <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white p-6 rounded-xl">
+      <h3 class="text-lg font-bold">Summer Sale</h3>
+      <p class="text-sm mt-2">Get up to 30% off on hotels</p>
+    </div>
+
+    <div class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white p-6 rounded-xl">
+      <h3 class="text-lg font-bold">Flight Deals</h3>
+      <p class="text-sm mt-2">Flat ₹1500 off on flights</p>
+    </div>
+
+    <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white p-6 rounded-xl">
+      <h3 class="text-lg font-bold">Holiday Packages</h3>
+      <p class="text-sm mt-2">Save big on international trips</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Deals for the Weekend -->
+<section class="max-w-7xl mx-auto p-6">
+  <h2 class="text-2xl font-bold mb-6">Deals for the Weekend</h2>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold">Goa</h3>
+        <p class="text-sm text-gray-500">Beach vibes</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold">Manali</h3>
+        <p class="text-sm text-gray-500">Mountain escape</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold">Dubai</h3>
+        <p class="text-sm text-gray-500">Luxury city</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a" class="w-full h-40 object-cover">
+      <div class="p-4">
+        <h3 class="font-bold">Paris</h3>
+        <p class="text-sm text-gray-500">Romantic getaway</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gray-100 text-gray-700 mt-10">
+  <div class="max-w-7xl mx-auto px-6 py-10 grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+    <div>
+      <h4 class="font-bold mb-3">Support</h4>
+      <ul class="space-y-2">
+        <li>Help Center</li>
+        <li>Contact Us</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-3">Company</h4>
+      <ul class="space-y-2">
+        <li>About</li>
+        <li>Careers</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-3">Partners</h4>
+      <ul class="space-y-2">
+        <li>List Property</li>
+        <li>Affiliate</li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-3">Legal</h4>
+      <ul class="space-y-2">
+        <li>Privacy</li>
+        <li>Terms</li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t py-4 text-center text-xs text-gray-500">© 2026 Fabitrip</div>
+</footer>
+
+<script>
+
+function switchTab(tab){
+  document.querySelectorAll('.tabBtn').forEach(btn=>{
+    btn.classList.remove('border-red-500');
+    btn.classList.add('text-gray-500');
+  });
+
+  document.getElementById('tab-'+tab).classList.add('border-red-500');
+
+  const titles = {
+    stays: 'Find your next stay',
+    flights: 'Search flights worldwide',
+    cars: 'Find rental cars'
+  };
+
+  const cardTitles = {
+    stays: 'Trending Stays',
+    flights: 'Popular Flights',
+    cars: 'Top Car Rentals'
+  };
+
+  document.getElementById('heroTitle').innerText = titles[tab];
+  document.getElementById('cardTitle').innerText = cardTitles[tab];
+
+  renderForm(tab);
+  renderCards(tab);
+}
+
+function renderForm(tab){
+  let html = '';
+
+  if(tab === 'stays'){
+    html = `<div class="bg-white p-4 rounded-xl grid md:grid-cols-4 gap-3 text-gray-700">
+      <input placeholder="Where are you going?" class="border p-3 rounded-lg">
+      <input type="date" class="border p-3 rounded-lg">
+      <input type="date" class="border p-3 rounded-lg">
+      <button class="bg-red-500 text-white rounded-lg">Search</button>
+    </div>`;
+  }
+
+  if(tab === 'flights'){
+    html = `<div class="bg-white p-4 rounded-xl grid md:grid-cols-5 gap-3 text-gray-700">
+      <input placeholder="From" class="border p-3 rounded-lg">
+      <input placeholder="To" class="border p-3 rounded-lg">
+      <input type="date" class="border p-3 rounded-lg">
+      <select class="border p-3 rounded-lg">
+        <option>Economy</option>
+        <option>Business</option>
+      </select>
+      <button class="bg-red-500 text-white rounded-lg">Search Flights</button>
+    </div>`;
+  }
+
+  if(tab === 'cars'){
+    html = `<div class="bg-white p-4 rounded-xl grid md:grid-cols-4 gap-3 text-gray-700">
+      <input placeholder="Pick-up location" class="border p-3 rounded-lg">
+      <input type="date" class="border p-3 rounded-lg">
+      <input type="time" class="border p-3 rounded-lg">
+      <button class="bg-red-500 text-white rounded-lg">Search Cars</button>
+    </div>`;
+  }
+
+  document.getElementById('formContainer').innerHTML = html;
+}
+
+function renderCards(tab){
+  let data = [];
+
+  if(tab === 'stays'){
+    data = [
+      {img:'https://images.unsplash.com/photo-1610641818989-c2051b5e2cfd', name:'Luxury Resort', place:'Goa', price:'₹5,499'},
+      {img:'https://images.unsplash.com/photo-1566073771259-6a8506099945', name:'Mountain Stay', place:'Manali', price:'₹3,299'},
+      {img:'https://images.unsplash.com/photo-1582719478250-c89cae4dc85b', name:'City Hotel', place:'Dubai', price:'₹7,999'}
+    ];
+  }
+
+  if(tab === 'flights'){
+    data = [
+      {img:'https://images.unsplash.com/photo-1436491865332-7a61a109cc05', name:'IndiGo', place:'Delhi → Mumbai', price:'₹4,200'},
+      {img:'https://images.unsplash.com/photo-1504198453319-5ce911bafcde', name:'Air India', place:'Kolkata → Delhi', price:'₹5,800'},
+      {img:'https://images.unsplash.com/photo-1493238792000-8113da705763', name:'SpiceJet', place:'Bangalore → Goa', price:'₹3,900'}
+    ];
+  }
+
+  if(tab === 'cars'){
+    data = [
+      {img:'https://images.unsplash.com/photo-1552519507-da3b142c6e3d', name:'Swift Dzire', place:'₹1200/day', price:'Manual'},
+      {img:'https://images.unsplash.com/photo-1549924231-f129b911e442', name:'Hyundai Creta', place:'₹2200/day', price:'SUV'},
+      {img:'https://images.unsplash.com/photo-1502877338535-766e1452684a', name:'Innova', place:'₹3500/day', price:'Family'}
+    ];
+  }
+
+  let html = '';
+  data.forEach(item=>{
+    html += `
+      <div class="bg-white rounded-xl shadow overflow-hidden hover:shadow-xl transition">
+        <img src="${item.img}" class="w-full h-40 object-cover">
+        <div class="p-4">
+          <h3 class="font-bold">${item.name}</h3>
+          <p class="text-sm text-gray-500">${item.place}</p>
+          <p class="text-red-500 font-bold mt-2">${item.price}</p>
+        </div>
+      </div>
+    `;
+  });
+
+  document.getElementById('cardContainer').innerHTML = html;
+}
+
+// default
+renderForm('stays');
+renderCards('stays');
+
+</script>
+
+</body>
+</html>
